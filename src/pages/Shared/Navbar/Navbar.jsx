@@ -71,7 +71,7 @@ const Navbar = () => {
                 {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
                 <Link to={'/'}>
                     <img className=" w-16 lg:w-20" src="https://i.ibb.co/7Xp6MpT/Group-1-1.png" alt="" />
-                    <p className="text-sm font-bold text-black pl-[3px] lg:pl-2"><small>Car Doctor</small></p>
+                    <p className="text-sm font-bold text-black pl-[3px] lg:pl-3"><small>Car Doctor</small></p>
                 </Link>
             </div>
             <div className="hidden lg:flex  z-50">
