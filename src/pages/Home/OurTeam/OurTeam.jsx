@@ -2,10 +2,11 @@
 import { Link } from "react-router-dom";
 
 const OurTeam = () => {
+
     return (
 
 
-        <div>
+        <div className="mt-20 px-4 xl:px-0">
             <section>
                 <div className="text-center space-y-4">
                     <h2 className=" text-base md:text-xl text-[#FF3811] font-bold">Popular Products</h2>
@@ -16,7 +17,7 @@ const OurTeam = () => {
                 </div>
             </section>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10">
+            <section className="grid grid-cols-1 md:grid-cols-3 gap-5 my-10">
                 <div className="p-5 border rounded-xl space-y-4 border-gray-100 hover:bg-gray-100 hover:border-gray-100 text-center">
                     <img className="rounded-xl  w-full" src="https://i.ibb.co/fC5wDLM/2.jpg" alt="" />
                     
@@ -38,6 +39,7 @@ const OurTeam = () => {
                         </Link>
                     </div>
                 </div>
+
                 <div className="p-5 border rounded-xl space-y-4 border-gray-100 hover:bg-gray-100 hover:border-gray-100 text-center">
                     <img className="rounded-xl  w-full" src="https://i.ibb.co/fC5wDLM/2.jpg" alt="" />
                     
@@ -59,6 +61,7 @@ const OurTeam = () => {
                         </Link>
                     </div>
                 </div>
+                
                 <div className="p-5 border rounded-xl space-y-4 border-gray-100 hover:bg-gray-100 hover:border-gray-100 text-center">
                     <img className="rounded-xl  w-full" src="https://i.ibb.co/fC5wDLM/2.jpg" alt="" />
                     

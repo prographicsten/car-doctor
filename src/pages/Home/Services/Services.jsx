@@ -1,6 +1,16 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import ServiceCard from "./ServiceCard";
 
 const Services = () => {
+
+    const [services, setServices] = useState([]);
+
+    useEffect(() => {
+        fetch('services.json')
+            .then(res => res.json())
+            .then(data  => setServices(data))
+    }, []);
+
     return (
         <div className="mt-20 mb-10">
             <div className="text-center space-y-4">
@@ -10,7 +20,8 @@ const Services = () => {
                 the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.  
                 </p>
             </div>
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 xl:px-0 gap-5 py-10">
+
+            {/* <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 xl:px-0 gap-5 py-10">
 
                 <div className="p-5 border rounded-xl space-y-4 border-gray-100 hover:bg-gray-100 hover:border-gray-100">
                     <img className="rounded-xl h-[210px] w-full" src="https://i.ibb.co/9TQvfjs/2.jpg" alt="" />
@@ -78,11 +89,18 @@ const Services = () => {
                     </div>
                 </div>
 
-            </section>
+            </section> */}
             
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 xl:px-0 gap-6 py-10">
+                {
+                    services?.map((service, idx) => <ServiceCard key={idx} service={service}></ServiceCard>)
+                }
+            </div>
+
             <div className="flex justify-center items-center">
                 <button className="bg-transparent border px-5 rounded-lg text-[#FF3811] border-[#FF3811] hover:bg-black hover:text-white hover:border-black btn capitalize">More Services</button>
             </div>
+
         
         </div>
     );

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Home from "../pages/Home/Home";
+import Details from "../pages/Home/Services/Details";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,12 @@ const router = createBrowserRouter([
             path: '/contact',
             element: <Home></Home>
         },
+
+        {
+            path: '/details/:id',
+            element: <Details></Details>,
+            loader: () => fetch('/services.json')
+        }
         
       ]
     },
