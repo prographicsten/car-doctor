@@ -1,8 +1,10 @@
+// import { useContext } from "react";
 import {Link, NavLink } from "react-router-dom";
+// import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
 
-
+    // const {user} = useContext(AuthContext);
 
     const navlinks = <>
 
@@ -49,6 +51,27 @@ const Navbar = () => {
             }
             >
             Contact
+            </NavLink>
+
+            {/* {
+                user ? '' : 
+                <NavLink
+                to="/login"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "bg-[#FF444A] text-white py-1 px-7  rounded-full  hover:rounded-tr-none hover:bg-black  " : " "
+                }
+                >
+                Login
+                </NavLink>
+            } */}
+
+            <NavLink
+            to="/login"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "bg-[#FF444A] text-white py-1 px-7  rounded-full  hover:rounded-tr-none hover:bg-black  " : " "
+            }
+            >
+            Login
             </NavLink>
             
         </>
