@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 // import toast from "react-hot-toast";
 
-const BookingRow = ({booking, handleDelete}) => {
+const BookingRow = ({booking, handleDelete, handleBookingConfirm}) => {
 
     // console.log(booking);
-    const {_id, name, email, date, service, img, amount} = booking || {};
+    const {_id, name, email, date, service, img, amount, status} = booking || {};
 
     // const handleDelete = id => {
     //     const proceed = confirm("Are you sure you want to delete");
@@ -51,7 +51,12 @@ const BookingRow = ({booking, handleDelete}) => {
             <td>{email}</td>
             <td>{date}</td>
             <th>
-            <button className="btn btn-ghost btn-xs">details</button>
+            {
+                status === 'confirm' ? 
+                <button className="btn btn-ghost btn-xs text-green-500">Confirmed</button> 
+                : 
+                <button onClick={() => handleBookingConfirm(_id)} className="btn btn-ghost btn-xs">Please Confirm</button>
+            }
             </th>
         </tr>
     );
@@ -59,7 +64,8 @@ const BookingRow = ({booking, handleDelete}) => {
 
 BookingRow.propTypes = {
     booking: PropTypes.any,
-    handleDelete: PropTypes.any
+    handleDelete: PropTypes.any,
+    handleBookingConfirm: PropTypes.any
 };
 
 export default BookingRow;
