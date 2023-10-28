@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import BookingRow from "./BookingRow";
+import toast from "react-hot-toast";
 
 const Bookings = () => {
 
@@ -25,12 +26,32 @@ const bookingsBanner = {
       .then((data) => setBookings(data));
   }, [url]);
 
+
+  const handleDelete = id => {
+    const proceed = confirm("Are you sure you want to delete");
+    if(proceed) {
+        fetch(`http://localhost:5000/bookings/${id}`, {
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.deletedCount > 0) {
+                toast.success('Deleted successfully');
+                const remaining = bookings?.filter(booking => booking._id !== id);
+                setBookings(remaining);
+            }
+        })
+    }
+};
+
+
   return (
     <div>
-      <h2 className="text-5xl">Your Bookings: {bookings?.length}</h2>
+      {/* <h2 className="text-5xl">Your Bookings: {bookings?.length}</h2> */}
 
     {/* bookings banner */}
-    <div style={bookingsBanner} className="relative xl:rounded-xl" >
+    <div style={bookingsBanner} className="relative xl:rounded-xl my-5" >
         <div className="absolute flex justify-center items-center md:justify-start md:px-10 lg:px-20 gap-5 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00) 100%) h-full w-full xl:rounded-xl">
           <div>
           <h2 className="text-center font-bold text-2xl md:text-4xl lg:text-5xl text-white">Cart Details</h2>
@@ -62,7 +83,11 @@ const bookingsBanner = {
           <tbody>
             {/* row 1 */}
             {
-                bookings?.map((booking, index) => <BookingRow key={index} booking={booking}></BookingRow>)
+                bookings?.map((booking, index) => <BookingRow 
+                key={index} 
+                booking={booking}
+                handleDelete={handleDelete}
+                ></BookingRow>)
             }
           </tbody>
         </table>

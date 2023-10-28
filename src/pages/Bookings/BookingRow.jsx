@@ -1,14 +1,31 @@
 import PropTypes from "prop-types";
+// import toast from "react-hot-toast";
 
-const BookingRow = ({booking}) => {
+const BookingRow = ({booking, handleDelete}) => {
 
     // console.log(booking);
-    const {name, email, date, service, img, amount} = booking || {};
+    const {_id, name, email, date, service, img, amount} = booking || {};
+
+    // const handleDelete = id => {
+    //     const proceed = confirm("Are you sure you want to delete");
+    //     if(proceed) {
+    //         fetch(`http://localhost:5000/bookings/${id}`, {
+    //             method: 'DELETE',
+    //         })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             if(data.deletedCount > 0) {
+    //                 toast.success('Deleted successfully');
+    //             }
+    //         })
+    //     }
+    // };
 
     return (
         <tr>
             <th>
-                <button className="btn btn-sm btn-circle bg-black hover:bg-[#FF3811]">
+                <button onClick={() => handleDelete(_id)} className="btn btn-sm btn-circle bg-black hover:bg-[#FF3811]">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 font-bold text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
             </th>
@@ -41,7 +58,8 @@ const BookingRow = ({booking}) => {
 };
 
 BookingRow.propTypes = {
-    booking: PropTypes.any
+    booking: PropTypes.any,
+    handleDelete: PropTypes.any
 };
 
 export default BookingRow;
