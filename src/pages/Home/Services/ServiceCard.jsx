@@ -12,9 +12,14 @@ const ServiceCard = ({ service }) => {
         <h2 className=" text-lg md:text-base lg:text-xl text-[#FF3811] font-semibold">
           Price : ${price}
         </h2>
-        <Link to={`/details/${_id}`}>
+        <Link to={`/checkout/${_id}`}>
           <i className=" text-lg lg:text-xl text-[#FF3811] font-semibold rotate-180 bx bx-arrow-back"></i>
         </Link>
+
+        {/* my codes details */}
+        {/* <Link to={`/details/${_id}`}>
+          <i className=" text-lg lg:text-xl text-[#FF3811] font-semibold rotate-180 bx bx-arrow-back"></i>
+        </Link> */}
       </div>
     </div>
   );
