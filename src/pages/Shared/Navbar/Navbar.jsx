@@ -59,6 +59,18 @@ const Navbar = () => {
             Contact
             </NavLink>
 
+            {user?.email ? <><NavLink 
+            to="/bookings"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "bg-[#FF444A] text-white py-1 px-7   rounded-full  hover:rounded-tr-none hover:bg-black  " : " "
+            }
+            >My Bookings</NavLink>
+            <button onClick={signout} className="bg-[#FF444A] text-white py-1 font-semibold hover:bg-black hover:text-white px-8 rounded-full">Logout</button>
+            </>
+            :
+            <Link to={'/login'}>Login</Link>
+            }
+
             {/* {
                 user ? '' : 
                 <NavLink
@@ -80,10 +92,6 @@ const Navbar = () => {
             Login
             </NavLink> */}
 
-            {user?.email ? (<button onClick={signout} className="bg-[#FF444A] text-white py-1 font-semibold hover:bg-black hover:text-white px-8 rounded-full">Logout</button>)
-            :
-            <Link to={'/login'}>Login</Link>
-            }
             
         </>
 
