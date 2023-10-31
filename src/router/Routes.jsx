@@ -41,13 +41,13 @@ const router = createBrowserRouter([
         {
             path: '/details/:id',
             element: <Details></Details>,
-            loader: () => fetch('http://localhost:5000/services')
+            loader: () => fetch('https://car-doctor-server-a0t1mri0s-shakil-ahmeds-projects-043baff6.vercel.app/services')
         },
 
         {
             path: '/checkout/:id',
             element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+            loader: ({params}) => fetch(`https://car-doctor-server-a0t1mri0s-shakil-ahmeds-projects-043baff6.vercel.app/services/${params.id}`)
         },
 
         {

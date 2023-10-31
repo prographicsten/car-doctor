@@ -34,7 +34,7 @@ const CheckOut = () => {
     console.log(order);
 
     // post order
-    fetch('http://localhost:5000/bookings', {
+    fetch('https://car-doctor-server-a0t1mri0s-shakil-ahmeds-projects-043baff6.vercel.app/bookings', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

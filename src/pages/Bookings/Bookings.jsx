@@ -22,7 +22,7 @@ const bookingsBanner = {
   const axiosSecure = useAxiosSecure();
 
 // useAxiosSecure Hooks
-//   const url = `http://localhost:5000/bookings?email=${user?.email}`;
+//   const url = `https://car-doctor-server-a0t1mri0s-shakil-ahmeds-projects-043baff6.vercel.app/bookings?email=${user?.email}`;
   const url = `/bookings?email=${user?.email}`;
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const bookingsBanner = {
   const handleDelete = id => {
     const proceed = confirm("Are you sure you want to delete");
     if(proceed) {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://car-doctor-server-a0t1mri0s-shakil-ahmeds-projects-043baff6.vercel.app/bookings/${id}`, {
             method: 'DELETE',
         })
         .then(res => res.json())
@@ -64,7 +64,7 @@ const bookingsBanner = {
 };
 
 const handleBookingConfirm = id => {
-    fetch(`http://localhost:5000/bookings/${id}`, {
+    fetch(`https://car-doctor-server-a0t1mri0s-shakil-ahmeds-projects-043baff6.vercel.app/bookings/${id}`, {
         method: 'PATCH',
         headers: {
             'content-type': 'application/json',
