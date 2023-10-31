@@ -1,12 +1,21 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import '../../index.css';
-import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
 import axios from "axios";
+
+// now comment and use my Hooks 
+// import { useContext } from "react";
+// import { AuthContext } from "../../providers/AuthProvider";
+
+import useAuth from "../../hooks/useAuth";
+
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext);
+    // now comment and use my Hooks 
+    // const {signIn} = useContext(AuthContext);
+
+    const {signIn} = useAuth();
+
     const location = useLocation();
     const navigate = useNavigate();
     // console.log(location);
