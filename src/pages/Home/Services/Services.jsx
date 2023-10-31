@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import useServices from "../../../hooks/useServices";
 import ServiceCard from "./ServiceCard";
 
 const Services = () => {
 
-    const [services, setServices] = useState([]);
+    const services = useServices();
 
-    useEffect(() => {
-        fetch('http://localhost:5000/services')
-            .then(res => res.json())
-            .then(data  => setServices(data))
-    }, []);
+    // now comment and use my Hooks
+    // const [services, setServices] = useState([]);
+
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/services')
+    //         .then(res => res.json())
+    //         .then(data  => setServices(data))
+    // }, []);
 
     return (
         <div className="mt-20 mb-10">
@@ -20,76 +24,6 @@ const Services = () => {
                 the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.  
                 </p>
             </div>
-
-            {/* <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 xl:px-0 gap-5 py-10">
-
-                <div className="p-5 border rounded-xl space-y-4 border-gray-100 hover:bg-gray-100 hover:border-gray-100">
-                    <img className="rounded-xl h-[210px] w-full" src="https://i.ibb.co/9TQvfjs/2.jpg" alt="" />
-                    <h3 className="text-[#444] text-lg lg:text-2xl font-bold">Electrical System</h3>
-                    <div className="flex justify-between items-center">
-                        <h2 className=" text-lg md:text-base lg:text-xl text-[#FF3811] font-semibold">Price : $20.00</h2>
-                        <Link to={'/'}>
-                        <i className=' text-lg lg:text-xl text-[#FF3811] font-semibold rotate-180 bx bx-arrow-back'></i>
-                        </Link>
-                    </div>
-                </div>
-
-                <div className="p-5 border rounded-xl space-y-4 border-gray-100 hover:bg-gray-100 hover:border-gray-100">
-                    <img className="rounded-xl h-[210px] w-full" src="https://i.ibb.co/rFgsPXP/4.jpg" alt="" />
-                    <h3 className="text-[#444] text-lg lg:text-2xl font-bold">Engine Diagnostics</h3>
-                    <div className="flex justify-between items-center">
-                        <h2 className=" text-lg md:text-base lg:text-xl text-[#FF3811] font-semibold">Price : $20.00</h2>
-                        <Link to={'/'}>
-                        <i className=' text-lg lg:text-xl text-[#FF3811] font-semibold rotate-180 bx bx-arrow-back'></i>
-                        </Link>
-                    </div>
-                </div>
-
-                <div className="p-5 border rounded-xl space-y-4 border-gray-100 hover:bg-gray-100 hover:border-gray-100">
-                    <img className="rounded-xl h-[210px] w-full" src="https://i.ibb.co/PZDSf7K/6.jpg" alt="" />
-                    <h3 className="text-[#444] text-lg lg:text-2xl font-bold">Auto Car Repair</h3>
-                    <div className="flex justify-between items-center">
-                        <h2 className=" text-lg md:text-base lg:text-xl text-[#FF3811] font-semibold">Price : $20.00</h2>
-                        <Link to={'/'}>
-                        <i className=' text-lg lg:text-xl text-[#FF3811] font-semibold rotate-180 bx bx-arrow-back'></i>
-                        </Link>
-                    </div>
-                </div>
-
-                <div className="p-5 border rounded-xl space-y-4 border-gray-100 hover:bg-gray-100 hover:border-gray-100">
-                    <img className="rounded-xl h-[210px] w-full" src="https://i.ibb.co/nQJLKBk/3.jpg" alt="" />
-                    <h3 className="text-[#444] text-lg lg:text-2xl font-bold">Electrical System</h3>
-                    <div className="flex justify-between items-center">
-                        <h2 className=" text-lg md:text-base lg:text-xl text-[#FF3811] font-semibold">Price : $20.00</h2>
-                        <Link to={'/'}>
-                        <i className=' text-lg lg:text-xl text-[#FF3811] font-semibold rotate-180 bx bx-arrow-back'></i>
-                        </Link>
-                    </div>
-                </div>
-
-                <div className="p-5 border rounded-xl space-y-4 border-gray-100 hover:bg-gray-100 hover:border-gray-100">
-                    <img className="rounded-xl h-[210px] w-full" src="https://i.ibb.co/d572MsC/1.jpg" alt="" />
-                    <h3 className="text-[#444] text-lg lg:text-2xl font-bold">Engine Diagnostics</h3>
-                    <div className="flex justify-between items-center">
-                        <h2 className=" text-lg md:text-base lg:text-xl text-[#FF3811] font-semibold">Price : $20.00</h2>
-                        <Link to={'/'}>
-                        <i className=' text-lg lg:text-xl text-[#FF3811] font-semibold rotate-180 bx bx-arrow-back'></i>
-                        </Link>
-                    </div>
-                </div>
-
-                <div className="p-5 border rounded-xl space-y-4 border-gray-100 hover:bg-gray-100 hover:border-gray-100">
-                    <img className="rounded-xl h-[210px] w-full" src="https://i.ibb.co/7r0dbg8/5.jpg" alt="" />
-                    <h3 className="text-[#444] text-lg lg:text-2xl font-bold">Auto Car Repair</h3>
-                    <div className="flex justify-between items-center">
-                        <h2 className=" text-lg md:text-base lg:text-xl text-[#FF3811] font-semibold">Price : $20.00</h2>
-                        <Link to={'/'}>
-                        <i className=' text-lg lg:text-xl text-[#FF3811] font-semibold rotate-180 bx bx-arrow-back'></i>
-                        </Link>
-                    </div>
-                </div>
-
-            </section> */}
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 xl:px-0 gap-6 py-10">
                 {
