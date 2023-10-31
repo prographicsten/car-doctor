@@ -30,7 +30,7 @@ const bookingsBanner = {
     })
 
     // normal fetching
-    // fetch(url)
+    // fetch(url, {credentials: 'include'})
     //   .then((res) => res.json())
     //   .then((data) => setBookings(data));
   }, [url]);
